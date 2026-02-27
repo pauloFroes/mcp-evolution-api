@@ -24,7 +24,7 @@ export async function apiRequest(endpoint, method = "GET", body, queryParams) {
         method,
         headers: {
             apikey: API_KEY,
-            "Content-Type": "application/json",
+            ...(body ? { "Content-Type": "application/json" } : {}),
         },
         body: body ? JSON.stringify(body) : undefined,
     });

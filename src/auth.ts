@@ -1,11 +1,7 @@
 function getRequiredEnv(name: string): string {
   const value = process.env[name];
   if (!value) {
-    console.error(
-      `Error: Missing required environment variable: ${name}\n` +
-        "  Required vars: EVOLUTION_BASE_URL, EVOLUTION_API_KEY, EVOLUTION_INSTANCE\n" +
-        "  Set them via claude mcp add -e or export in your shell."
-    );
+    console.error(`Error: Missing ${name} environment variable`);
     process.exit(1);
   }
   return value;

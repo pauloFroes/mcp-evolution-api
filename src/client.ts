@@ -33,7 +33,7 @@ export async function apiRequest<T>(
     method,
     headers: {
       apikey: API_KEY,
-      "Content-Type": "application/json",
+      ...(body ? { "Content-Type": "application/json" } : {}),
     },
     body: body ? JSON.stringify(body) : undefined,
   });
