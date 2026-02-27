@@ -29,6 +29,8 @@ Three installation scopes are available:
 | **project** | `-s project` | `.claude/mcp.json` | Shared with team via git |
 | **user** | `-s user` | `~/.claude/mcp.json` | All your projects |
 
+**Quick setup (inline env vars):**
+
 ```bash
 claude mcp add evolution-api -s user \
   -e EVOLUTION_BASE_URL=https://your-instance.example.com \
@@ -38,6 +40,34 @@ claude mcp add evolution-api -s user \
 ```
 
 > Replace `-s user` with `-s local` or `-s project` as needed.
+
+**Persistent setup (.env file):**
+
+Add to your `.mcp.json`:
+
+```json
+{
+  "evolution-api": {
+    "command": "npx",
+    "args": ["-y", "github:pauloFroes/mcp-evolution-api"],
+    "env": {
+      "EVOLUTION_BASE_URL": "${EVOLUTION_BASE_URL}",
+      "EVOLUTION_API_KEY": "${EVOLUTION_API_KEY}",
+      "EVOLUTION_INSTANCE": "${EVOLUTION_INSTANCE}"
+    }
+  }
+}
+```
+
+Then define the values in your `.env` file:
+
+```
+EVOLUTION_BASE_URL=your-base-url
+EVOLUTION_API_KEY=your-api-key
+EVOLUTION_INSTANCE=your-instance-name
+```
+
+> See `.env.example` for all required variables.
 
 ### Codex
 
