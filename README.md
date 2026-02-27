@@ -21,14 +21,23 @@ Works with **Claude Code**, **Codex**, **Claude Desktop**, **Cursor**, **VS Code
 
 ### Claude Code
 
+Three installation scopes are available:
+
+| Scope | Flag | Config file | Use case |
+|-------|------|-------------|----------|
+| **local** | `-s local` | `.mcp.json` | This project only (default) |
+| **project** | `-s project` | `.claude/mcp.json` | Shared with team via git |
+| **user** | `-s user` | `~/.claude/mcp.json` | All your projects |
+
 ```bash
-claude mcp add evolution-api \
-  --transport stdio \
+claude mcp add evolution-api -s user \
   -e EVOLUTION_BASE_URL=https://your-instance.example.com \
   -e EVOLUTION_API_KEY=your-key \
   -e EVOLUTION_INSTANCE=your-instance \
   -- npx -y github:pauloFroes/mcp-evolution-api
 ```
+
+> Replace `-s user` with `-s local` or `-s project` as needed.
 
 ### Codex
 
