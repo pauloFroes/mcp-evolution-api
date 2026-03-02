@@ -29,8 +29,6 @@ Three installation scopes are available:
 | **project** | `-s project` | `.claude/mcp.json` | Shared with team via git |
 | **user** | `-s user` | `~/.claude/mcp.json` | All your projects |
 
-**Quick setup (inline env vars):**
-
 ```bash
 claude mcp add evolution-api -s user \
   -e EVOLUTION_BASE_URL=https://your-instance.example.com \
@@ -40,34 +38,6 @@ claude mcp add evolution-api -s user \
 ```
 
 > Replace `-s user` with `-s local` or `-s project` as needed.
-
-**Persistent setup (.env file):**
-
-Add to your `.mcp.json`:
-
-```json
-{
-  "evolution-api": {
-    "command": "npx",
-    "args": ["-y", "github:pauloFroes/mcp-evolution-api"],
-    "env": {
-      "EVOLUTION_BASE_URL": "${EVOLUTION_BASE_URL}",
-      "EVOLUTION_API_KEY": "${EVOLUTION_API_KEY}",
-      "EVOLUTION_INSTANCE": "${EVOLUTION_INSTANCE}"
-    }
-  }
-}
-```
-
-Then define the values in your `.env` file:
-
-```
-EVOLUTION_BASE_URL=your-base-url
-EVOLUTION_API_KEY=your-api-key
-EVOLUTION_INSTANCE=your-instance-name
-```
-
-> See `.env.example` for all required variables.
 
 ### Codex
 
@@ -162,35 +132,56 @@ Add to `~/.codeium/windsurf/mcp_config.json`:
 
 ## Available Tools
 
-### Messaging
+### Messaging (9)
 
 | Tool | Description |
 |------|-------------|
-| `send_text` | Send a text message |
-| `send_media` | Send image, video, or document |
+| `block_contact` | Block or unblock a contact |
 | `send_audio` | Send audio/voice note |
-| `send_location` | Send location pin |
 | `send_contact` | Send contact card (vCard) |
-| `send_reaction` | React to a message with emoji |
+| `send_location` | Send location pin |
+| `send_media` | Send image, video, or document |
 | `send_poll` | Send a poll |
+| `send_reaction` | React to a message with emoji |
+| `send_sticker` | Send a sticker |
+| `send_text` | Send a text message |
 
-### Chat
+### Chat (12)
 
 | Tool | Description |
 |------|-------------|
-| `find_contacts` | Search WhatsApp contacts |
+| `archive_chat` | Archive or unarchive a chat |
 | `check_whatsapp_numbers` | Verify if numbers exist on WhatsApp |
-| `find_messages` | Retrieve messages from a chat |
-| `mark_as_read` | Mark messages as read |
 | `delete_message` | Delete a message for everyone |
+| `fetch_profile` | Fetch contact profile information |
+| `fetch_profile_picture` | Get contact profile picture URL |
+| `find_chats` | List all chats/conversations |
+| `find_contacts` | Search WhatsApp contacts |
+| `find_messages` | Retrieve messages from a chat |
+| `get_base64_from_media` | Extract media as base64 from a message |
+| `mark_as_read` | Mark messages as read |
+| `send_presence` | Send typing/recording indicator |
+| `update_message` | Edit a previously sent message |
 
-### Groups
+### Groups (10)
 
 | Tool | Description |
 |------|-------------|
-| `list_groups` | List all groups |
-| `group_participants` | List group members |
+| `create_group` | Create a new group |
+| `fetch_invite_code` | Get group invite link |
 | `find_group` | Get group info by JID |
+| `group_participants` | List group members |
+| `leave_group` | Leave a group |
+| `list_groups` | List all groups |
+| `send_group_invite` | Send group invite to numbers |
+| `update_group_description` | Update group description |
+| `update_group_picture` | Update group profile picture |
+| `update_group_subject` | Update group name |
+
+### Instance (1)
+
+| Tool | Description |
+|------|-------------|
 | `check_connection` | Check WhatsApp connection status |
 
 ## Authentication

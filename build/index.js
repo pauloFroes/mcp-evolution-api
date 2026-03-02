@@ -4,6 +4,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { registerMessagingTools } from "./tools/messaging.js";
 import { registerChatTools } from "./tools/chat.js";
 import { registerGroupTools } from "./tools/groups.js";
+import { registerInstanceTools } from "./tools/instance.js";
 const server = new McpServer({
     name: "mcp-evolution-api",
     version: "1.0.0",
@@ -11,6 +12,7 @@ const server = new McpServer({
 registerMessagingTools(server);
 registerChatTools(server);
 registerGroupTools(server);
+registerInstanceTools(server);
 async function main() {
     const transport = new StdioServerTransport();
     await server.connect(transport);
